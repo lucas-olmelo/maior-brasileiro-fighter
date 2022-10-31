@@ -1,9 +1,17 @@
 package melo.maiorbrasileirofighter;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
+
 public class TelaInicial extends javax.swing.JFrame {
 
     public TelaInicial() {
         initComponents();
+        setLocationRelativeTo(null);
+        URL url = this.getClass().getResource("/maior-brasileiro-fight-red.png");
+        Image imgTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        setIconImage(imgTitulo);
     }
 
     @SuppressWarnings("unchecked")
@@ -18,6 +26,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Maior Brasileiro Fighter");
+        setResizable(false);
 
         userTxt.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         userTxt.setText("Usuário");
@@ -50,35 +59,34 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                            .addComponent(emailTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(113, 113, 113)
+                        .addGap(347, 347, 347)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(432, 432, 432)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(415, 415, 415)
-                        .addComponent(jButton2)))
-                .addContainerGap(353, Short.MAX_VALUE))
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(emailTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(userTxt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailTxt))
-                    .addComponent(jLabel1))
+                .addComponent(jLabel1)
                 .addGap(22, 22, 22)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(userTxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(emailTxt)
+                .addContainerGap())
         );
 
         pack();

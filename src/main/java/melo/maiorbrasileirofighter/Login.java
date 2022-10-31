@@ -1,12 +1,17 @@
 package melo.maiorbrasileirofighter;
 
-import javax.swing.JOptionPane;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 
 public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
+        URL url = this.getClass().getResource("/maior-brasileiro-fight-red.png");
+        Image imgTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        setIconImage(imgTitulo);
     }
 
     @SuppressWarnings("unchecked")
@@ -25,6 +30,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Maior Brasileiro Fighter");
+        setResizable(false);
 
         loginTxt.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         loginTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -84,9 +90,9 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(senhaTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
-                            .addComponent(loginTxt))))
-                .addContainerGap(371, Short.MAX_VALUE))
+                            .addComponent(loginTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                            .addComponent(senhaTxt))))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

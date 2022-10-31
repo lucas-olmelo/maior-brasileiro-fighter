@@ -1,9 +1,17 @@
 package melo.maiorbrasileirofighter;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
+
 public class Lutadores extends javax.swing.JFrame {
 
     public Lutadores() {
         initComponents();
+        setLocationRelativeTo(null);
+        URL url = this.getClass().getResource("/maior-brasileiro-fight-red.png");
+        Image imgTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        setIconImage(imgTitulo);
     }
 
     BuscaLutador bl = new BuscaLutador();
@@ -95,10 +103,13 @@ public class Lutadores extends javax.swing.JFrame {
         titulo2 = new javax.swing.JLabel();
         imagemPersonagem1 = new javax.swing.JLabel();
         botaoEscolha = new javax.swing.JButton();
+        botaoVoltar = new javax.swing.JButton();
+        botaoLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Maior Brasileiro Fighter");
         setPreferredSize(new java.awt.Dimension(1200, 600));
+        setResizable(false);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/neymar.jpg"))); // NOI18N
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -178,6 +189,21 @@ public class Lutadores extends javax.swing.JFrame {
             }
         });
 
+        botaoVoltar.setText("Voltar");
+        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVoltarActionPerformed(evt);
+            }
+        });
+
+        botaoLimpar.setText("Limpar");
+        botaoLimpar.setEnabled(false);
+        botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,28 +212,33 @@ public class Lutadores extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton8))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton5))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(titulo)
-                                        .addGap(33, 33, 33)))
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton7)))
+                                .addComponent(botaoVoltar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botaoLimpar))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButton3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton6)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton8))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jButton1)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jButton2)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jButton5))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(titulo)
+                                            .addGap(33, 33, 33)))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton7))))
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(imagemPersonagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -233,7 +264,11 @@ public class Lutadores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(imagemPersonagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botaoVoltar)
+                            .addComponent(botaoLimpar))
+                        .addGap(34, 34, 34)
                         .addComponent(titulo)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -385,6 +420,7 @@ public class Lutadores extends javax.swing.JFrame {
                 titulo1.setText("");
                 titulo2.setText("");
                 setFlagEscolha(1);
+                botaoLimpar.setEnabled(true);
                 break;
             case 1:
                 titulo.setText("");
@@ -410,6 +446,26 @@ public class Lutadores extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_botaoEscolhaActionPerformed
+
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        // TODO add your handling code here:
+        TelaInicial ti = new TelaInicial();
+        ti.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
+        // TODO add your handling code here:
+        botaoLimpar.setEnabled(false);
+        setFlagEscolha(0);
+        titulo1.setText("");
+        titulo2.setText("");
+        imagemPersonagem.setIcon(null);
+        imagemPersonagem1.setIcon(null);
+        titulo.setText("Escolha o seu brasileiro");
+        botaoEscolha.setText("Confirma");
+        botaoEscolha.setEnabled(false);
+    }//GEN-LAST:event_botaoLimparActionPerformed
     
     /**
      * @param args the command line arguments
@@ -448,6 +504,8 @@ public class Lutadores extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEscolha;
+    private javax.swing.JButton botaoLimpar;
+    private javax.swing.JButton botaoVoltar;
     private javax.swing.JLabel imagemPersonagem;
     private javax.swing.JLabel imagemPersonagem1;
     private javax.swing.JButton jButton1;

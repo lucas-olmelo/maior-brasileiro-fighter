@@ -1,13 +1,19 @@
 package melo.maiorbrasileirofighter;
 
 import java.awt.ComponentOrientation;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.util.Random;
-import javax.swing.JLabel;
 
 public class Fight extends javax.swing.JFrame {
 
     public Fight() {
         initComponents();
+        setLocationRelativeTo(null);
+        URL url = this.getClass().getResource("/maior-brasileiro-fight-red.png");
+        Image imgTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        setIconImage(imgTitulo);
     }
 
     @SuppressWarnings("unchecked")
@@ -30,6 +36,7 @@ public class Fight extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Maior Brasileiro Fighter");
         setPreferredSize(new java.awt.Dimension(1200, 600));
+        setResizable(false);
 
         nomePlayer.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         nomePlayer.setText("Player");
@@ -120,8 +127,8 @@ public class Fight extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(danoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(fraseDerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141)
+                .addComponent(fraseDerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124)
                 .addComponent(iniciaLuta)
                 .addGap(21, 21, 21))
         );

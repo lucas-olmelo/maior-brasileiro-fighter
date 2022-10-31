@@ -29,7 +29,7 @@
                     <archive>                        
                         <manifest>           
                             <mainClass>
-                                melo.MaiorBrasileiroFighter.Login
+                                melo.maiorbrasileirofighter.Login
                             </mainClass>
                         </manifest>
                     </archive>           
